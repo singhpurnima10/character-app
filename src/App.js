@@ -3,37 +3,57 @@ import { connect } from "react-redux";
 import { bindActionCreators } from 'redux'
 import logo from "./logo.svg";
 import "./App.css";
-import { addUser } from './redux/action'
+import { addUserAsync } from './redux/action'
+import { render } from "react-dom";
 
-function App(props) {
-  console.log(props,"propssssssssssss")
-  return (
+class App extends React.Component{
+  componentDidMount(props){
+    this.props.user1("value");
+  }
+render(){
+  console.log(this.props,"dataaaaaaa")
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button onClick={props.user1("helooooooooooo")}>click me</button>
-      </header>
-    </div>
-  );
+     <header className="App-header">
+  heyiiii
+  </header>
+      </div>
+  )
 }
+}
+// {
+//   console.log(props,"propssssssssssss")
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.js</code> and save to reload.
+//         </p>
+//         <a
+//           className="App-link"
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//         <button onClick={() => props.user1('value')}>click me</button>
+//         {/* <div>{props.characterData}</div> */}
+//       </header>
+//     </div>
+//   );
+// }
 
 const mapStateToProps = state => {
-  // const users = state.userDataReducer;
-  const data ="dataaa"
-  return data;
+  return{
+    characterData: state && state.users
+  }
 };
 const mapDispatchToProps = dispatch => {
-  user1: () => dispatch(addUser())
+  return{
+    user1: (value) => dispatch(addUserAsync(value))
+  }
+  
 };
 export default connect(mapStateToProps, mapDispatchToProps)(App);

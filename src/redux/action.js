@@ -1,9 +1,12 @@
-import { ADD_USER } from "./constant";
+import { ADD_USER_ASYNC } from "./constant";
 
 
-export const addUser = (payload) => (
-    console.log("heyyyyyyyyyyy"),{
-    type: ADD_USER,
-    payload
-});
+export function addUserAsync(payload) {
+    console.log('action dispatched', payload);
+    return{
+        type: ADD_USER_ASYNC,
+        payload
+    }
+        
+};
 

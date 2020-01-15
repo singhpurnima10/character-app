@@ -1,10 +1,17 @@
-import { ADD_USER } from "./constant";
+import { ADD_USER_ASYNC, ADD_USER } from "./constant";
 
-function userDataReducer(state = { users: [] }, action) {
+
+const intialState = {
+  users:{}
+}
+
+function userDataReducer(state=intialState, action) {
   switch (action.type) {
     case ADD_USER:
+      // console.log(action,"bbbbbbbbbbbbbb")
+      // const data1 = action && state.value && state.value.data && state.value.data.results
       return Object.assign({}, state, {
-        users: [...state.users, action.user]
+        users: action.value.data.results
       });
     default:
       return state;
