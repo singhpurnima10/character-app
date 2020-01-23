@@ -6,7 +6,14 @@ import "./App.css";
 import { addUserAsync } from "./redux/action";
 import { render } from "react-dom";
 import * as _ from "lodash";
-import { StyledDiv,Image, MainContainer, Name } from "./App.style";
+import {
+  StyledDiv,
+  Image,
+  MainContainer,
+  Name,
+  Title,
+  Value
+} from "./App.style";
 
 class App extends React.Component {
   componentDidMount(props) {
@@ -22,13 +29,31 @@ class App extends React.Component {
           return (
             <div>
               <StyledDiv>
-              <Image src={val.image}></Image>
-                <Name>NAME:{val.name}</Name>
-                <Name>STATUS:{val.status}</Name>
-                <Name>SPECIES:{val.species}</Name>
-                <Name>GENDER:{val.gender}</Name>
-                <Name>ORIGIN:{val.origin.name}</Name>
-                <Name>LAST LOCATION:{val.location.name}</Name>
+                <Image src={val.image}></Image>
+                <Name>
+                  <Title>NAME:</Title>
+                  <Value>{val.name}</Value>
+                </Name>
+                <Name>
+                  <Title>STATUS:</Title>
+                  <Value>{val.status}</Value>
+                </Name>
+                <Name>
+                  <Title>SPECIES:</Title>
+                  <Value>{val.species}</Value>
+                </Name>
+                <Name>
+                  <Title>GENDER:</Title>
+                  <Value>{val.gender}</Value>
+                </Name>
+                <Name>
+                  <Title>ORIGIN:</Title>
+                  <Value>{val.origin.name}</Value>
+                </Name>
+                <Name>
+                  <Title>LAST LOCATION:</Title>
+                  <Value>{val.location.name}</Value>
+                </Name>
               </StyledDiv>
             </div>
           );
